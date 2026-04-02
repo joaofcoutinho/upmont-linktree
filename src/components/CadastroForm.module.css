@@ -1,0 +1,207 @@
+/* ── Form ──────────────────────────────── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* ── Field Group ─────────────────────── */
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-60);
+}
+
+.required {
+  color: var(--gold);
+  margin-left: 2px;
+}
+
+/* ── Inputs ──────────────────────────── */
+.input {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  font-size: 0.9375rem;
+  font-weight: 300;
+  font-family: inherit;
+  letter-spacing: 0.03em;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.03);
+  transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.input:focus {
+  border-color: var(--gold-40);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.08);
+}
+
+.input::placeholder {
+  color: var(--text-40);
+  font-weight: 300;
+}
+
+.inputError {
+  border-color: rgba(248, 113, 113, 0.5);
+}
+
+.inputError:focus {
+  border-color: var(--error);
+  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.1);
+}
+
+/* ── Perfil Cards ────────────────────── */
+.profileOptions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.profileCard {
+  cursor: pointer;
+  display: block;
+}
+
+.radioHidden {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.profileInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 18px 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.02);
+  text-align: center;
+  transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.profileCard:hover .profileInner {
+  border-color: var(--gold-40);
+  background: rgba(201, 169, 97, 0.04);
+}
+
+.profileCardSelected .profileInner {
+  border-color: var(--gold);
+  background: rgba(201, 169, 97, 0.08);
+  box-shadow: 0 0 20px rgba(201, 169, 97, 0.12), inset 0 0 0 1px rgba(201, 169, 97, 0.15);
+}
+
+.profileIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-60);
+  transition: color 0.25s ease;
+}
+
+.profileCard:hover .profileIcon {
+  color: var(--gold);
+}
+
+.profileCardSelected .profileIcon {
+  color: var(--gold);
+}
+
+.profileLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.profileDesc {
+  font-size: 0.625rem;
+  font-weight: 300;
+  color: var(--text-40);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+/* ── Error Message ───────────────────── */
+.errorMsg {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--error);
+  letter-spacing: 0.03em;
+  display: block;
+}
+
+/* ── Submit Button ───────────────────── */
+.btnSubmit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 24px;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--gold-40);
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  font-family: inherit;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease,
+              box-shadow 0.3s ease, transform 0.3s ease;
+  margin-top: 6px;
+}
+
+.btnSubmit:hover {
+  background: var(--gold);
+  color: #070F0E;
+  border-color: var(--gold);
+  box-shadow: 0 0 24px rgba(201, 169, 97, 0.4);
+  transform: scale(1.02);
+}
+
+.btnSubmit:active {
+  transform: scale(0.99);
+}
+
+.btnSubmit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Responsividade ──────────────────── */
+@media (max-width: 440px) {
+  .profileOptions {
+    gap: 8px;
+  }
+
+  .profileInner {
+    padding: 14px 6px 12px;
+  }
+
+  .profileLabel {
+    font-size: 0.6875rem;
+  }
+
+  .profileDesc {
+    display: none;
+  }
+}

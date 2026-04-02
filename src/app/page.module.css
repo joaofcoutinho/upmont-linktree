@@ -1,0 +1,130 @@
+/* ── Background ──────────────────────── */
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.bgImage {
+  object-fit: cover;
+  object-position: center;
+  filter: blur(6px) brightness(0.35);
+  transform: scale(1.05); /* evita borda branca do blur */
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(7, 15, 14, 0.5) 0%,
+    rgba(7, 15, 14, 0.3) 50%,
+    rgba(7, 15, 14, 0.6) 100%
+  );
+}
+
+/* ── Page Wrapper ────────────────────── */
+.pageWrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 48px 20px 56px;
+}
+
+/* ── Brand Header ────────────────────── */
+.brandHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.logoWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  height: 140px;
+  width: auto;
+  filter: drop-shadow(0 2px 12px rgba(201, 169, 97, 0.35));
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.04);
+}
+
+/* Fallback quando não há logo */
+.brandName {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--text);
+  text-transform: uppercase;
+  filter: drop-shadow(0 2px 12px rgba(201, 169, 97, 0.35));
+}
+
+.divider {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.brandTagline {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--text-60);
+  text-align: center;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ── Card ────────────────────────────── */
+.card {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  box-shadow:
+    0 0 0 1px rgba(201, 169, 97, 0.05),
+    0 24px 64px rgba(0, 0, 0, 0.5);
+}
+
+.cardTitle {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: center;
+}
+
+/* ── Footer ──────────────────────────── */
+.pageFooter {
+  text-align: center;
+  font-size: 0.6875rem;
+  font-weight: 300;
+  color: var(--text-40);
+  letter-spacing: 0.08em;
+}
+
+/* ── Responsividade ──────────────────── */
+@media (max-width: 440px) {
+  .card {
+    padding: 32px 22px;
+  }
+}

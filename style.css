@@ -1,0 +1,294 @@
+/* ═══════════════════════════════════════
+   Upmont — Linktree / Cadastro
+   ═══════════════════════════════════════ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary:     #1a2e4a;   /* azul escuro Upmont */
+  --accent:      #c9a84c;   /* dourado */
+  --accent-dark: #a8893a;
+  --bg:          #f4f5f7;
+  --card-bg:     #ffffff;
+  --text:        #1e1e2e;
+  --muted:       #6b7280;
+  --border:      #e2e6ea;
+  --error:       #dc2626;
+  --radius:      14px;
+  --shadow:      0 8px 40px rgba(26,46,74,.12);
+  --transition:  .2s ease;
+}
+
+html { font-size: 16px; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32px 16px 48px;
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(201,168,76,.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 90%, rgba(26,46,74,.06) 0%, transparent 60%);
+}
+
+/* ── Wrapper ─────────────────────────── */
+.page-wrapper {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Header / Branding ───────────────── */
+.brand-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding-top: 8px;
+}
+
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  height: 44px;
+  width: auto;
+}
+
+.brand-name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  color: var(--primary);
+}
+
+.brand-tagline {
+  font-size: .875rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ── Card ────────────────────────────── */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-align: center;
+  padding-bottom: 4px;
+  border-bottom: 2px solid var(--accent);
+  width: fit-content;
+  margin: 0 auto;
+}
+
+/* ── Fields ──────────────────────────── */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-group label:first-child {
+  font-size: .875rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.required {
+  color: var(--error);
+  margin-left: 2px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-size: .9375rem;
+  font-family: inherit;
+  color: var(--text);
+  background: #fafbfc;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(26,46,74,.1);
+  background: #fff;
+}
+
+input::placeholder { color: #b0b8c4; }
+
+/* ── Perfil Cards ────────────────────── */
+.profile-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.profile-card {
+  cursor: pointer;
+  display: block;
+}
+
+.profile-card input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.profile-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 14px 8px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  background: #fafbfc;
+  text-align: center;
+  transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+}
+
+.profile-card:hover .profile-inner,
+.profile-card input:focus-visible ~ .profile-inner {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(26,46,74,.08);
+}
+
+.profile-card.selected .profile-inner {
+  border-color: var(--accent);
+  background: rgba(201,168,76,.06);
+  box-shadow: 0 0 0 3px rgba(201,168,76,.15);
+}
+
+.profile-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.profile-label {
+  font-size: .8125rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.profile-desc {
+  font-size: .6875rem;
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+/* ── Mensagens de erro ───────────────── */
+.error-msg {
+  font-size: .8125rem;
+  color: var(--error);
+  min-height: 1rem;
+  display: block;
+}
+
+/* ── Botão Submit ────────────────────── */
+.btn-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 20px;
+  background: #25d366;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 4px 16px rgba(37,211,102,.3);
+  margin-top: 4px;
+}
+
+.btn-submit:hover {
+  background: #1ebe5d;
+  box-shadow: 0 6px 20px rgba(37,211,102,.4);
+}
+
+.btn-submit:active {
+  transform: scale(.98);
+}
+
+.btn-submit:disabled {
+  opacity: .65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+}
+
+/* ── Footer ──────────────────────────── */
+.page-footer {
+  text-align: center;
+  font-size: .75rem;
+  color: #a0aec0;
+  padding-bottom: 8px;
+}
+
+/* ── Responsividade ──────────────────── */
+@media (max-width: 420px) {
+  .card {
+    padding: 28px 20px;
+  }
+
+  .profile-options {
+    gap: 8px;
+  }
+
+  .profile-inner {
+    padding: 12px 6px 10px;
+  }
+
+  .profile-label {
+    font-size: .75rem;
+  }
+
+  .profile-desc {
+    display: none;
+  }
+}

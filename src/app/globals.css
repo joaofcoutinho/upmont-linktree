@@ -1,0 +1,38 @@
+/* ═══════════════════════════════════════
+   Upmont — Global Styles
+   ═══════════════════════════════════════ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --gold:          #c9a961;
+  --gold-40:       rgba(201, 169, 97, 0.4);
+  --gold-20:       rgba(201, 169, 97, 0.2);
+  --gold-10:       rgba(201, 169, 97, 0.1);
+  --bg:            #070F0E;
+  --bg-card:       rgba(255, 255, 255, 0.04);
+  --text:          #ffffff;
+  --text-60:       rgba(255, 255, 255, 0.6);
+  --text-40:       rgba(255, 255, 255, 0.4);
+  --border:        rgba(201, 169, 97, 0.2);
+  --error:         #f87171;
+  --radius:        4px;
+  --font:          var(--font-montserrat), 'Montserrat', Arial, sans-serif;
+}
+
+html { font-size: 16px; }
+
+body {
+  font-family: var(--font);
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  letter-spacing: 0.025em;
+  background-image:
+    radial-gradient(ellipse at 50% 0%,   rgba(201, 169, 97, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 100% 100%, rgba(201, 169, 97, 0.04) 0%, transparent 50%);
+}
