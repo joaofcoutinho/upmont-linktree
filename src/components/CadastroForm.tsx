@@ -93,13 +93,30 @@ export default function CadastroForm() {
     setLoading(true);
 
     try {
+      // Salva no banco de dados
       await fetch("/api/rd-station", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
     } catch {
-      // Não bloqueia o fluxo se o RD Station falhar
+      // Não bloqueia o fluxo
+    }
+
+    // Dispara conversão pelo script do RD Station já carregado na página
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const rdq: any[] = (window as any)._rdq || [];
+      rdq.push(["conversao", {
+        identificador: "cadastro-upmont-linktree",
+        nome:     payload.nome,
+        email:    payload.email,
+        telefone: payload.telefone,
+        cf_perfil: payload.perfil,
+      }]);
+      (window as any)._rdq = rdq;
+    } catch {
+      // Não bloqueia o fluxo
     }
 
     window.location.href = buildWhatsAppURL(payload);
