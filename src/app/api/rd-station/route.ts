@@ -35,15 +35,16 @@ export async function POST(req: NextRequest) {
         },
       };
 
+      console.log("[RD Station] payload enviado:", JSON.stringify(payload, null, 2));
+
       const res = await fetch(`${RD_API_URL}?api_key=${RD_TOKEN}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
-      if (!res.ok) {
-        console.warn("[RD Station] erro:", res.status, await res.text());
-      }
+      const resBody = await res.text();
+      console.log("[RD Station] status:", res.status, "| resposta:", resBody);
     }
 
     return NextResponse.json({ ok: true, id: row.id });
