@@ -24,6 +24,13 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR">
+      <head>
+        <script
+          type="text/javascript"
+          async
+          src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/cf247fa1-c9c8-435d-8c72-68b3228754da-loader.js"
+        />
+      </head>
       <body className={montserrat.variable}>{children}</body>
     </html>
   );
